@@ -30,4 +30,4 @@
 
 # Runs the protoc with gRPC plugin to generate protocol messages and gRPC stubs.
 protoc -I ./googleapis  --python_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_python_plugin` ./googleapis/google/devtools/cloudtrace/v1/trace.proto
-
+cp ./google/devtools//cloudtrace/v1/trace_pb2.py ./

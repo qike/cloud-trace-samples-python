@@ -34,6 +34,11 @@ log.setLevel(logging.DEBUG)
 
 TRACE_ENDPOINT = "cloudtrace.googleapis.com"
 SSL_PORT = 443
+"""
+Both auth scopes are accepted:
+https://www.googleapis.com/auth/trace.readonly
+https://www.googleapis.com/auth/cloud-platform
+"""
 OAUTH_SCOPE = "https://www.googleapis.com/auth/trace.readonly",
 GOOGLE_CREDS = client.GoogleCredentials.get_application_default()
 SCOPED_CREDS = GOOGLE_CREDS.create_scoped(OAUTH_SCOPE)

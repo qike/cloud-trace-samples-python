@@ -28,9 +28,9 @@ from grpc.framework.interfaces.face.face import NetworkError
 from oauth2client import client
 
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
+log.setLevel(logging.DEBUG)
 
 TRACE_ENDPOINT = "cloudtrace.googleapis.com"
 SSL_PORT = 443
@@ -42,9 +42,8 @@ TIMEOUT = 30
 
 def auth_func(scoped_creds=SCOPED_CREDS):
     """Returns a token obtained from Google Creds."""
-    print("Trying to get access token...")
     authn = scoped_creds.get_access_token().access_token
-    print("Got access_token successfully.")
+    logging.info("Got access_token successfully.")
     return [('authorization', 'Bearer %s' % authn)]
 
 
@@ -85,7 +84,6 @@ def main():
         usage()
         exit(1)
     stub = create_trace_stub()
-    print ("Stub created...")
     list_traces(stub, 'projects/{}'.format(sys.argv[1]))
 
 

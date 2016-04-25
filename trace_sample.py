@@ -89,7 +89,7 @@ def main():
         usage()
         exit(1)
     stub = create_trace_stub()
-    list_traces(stub, 'projects/{}'.format(sys.argv[1]))
+    list_traces(stub, sys.argv[1])
 
 
 if __name__ == '__main__':
